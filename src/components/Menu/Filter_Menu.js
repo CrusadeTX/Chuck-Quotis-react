@@ -1,8 +1,11 @@
+import React from 'react';
+import { Button } from 'reactstrap';
 const FilterMenu = ()=>{
     return  <>
         <div className="row mt-3 shadow p-2">
             <div className="d-flex align-items-center col-lg-2 col-12">
-            <button id="change-view-btn" className="btn btn-danger text-center btn-block lg-btn my-2 my-lg-0">Change View</button>
+            <Button color="danger" className="btn text-center btn-block lg-btn my-2 my-lg-0">Change View</Button>
+            {/*<button id="change-view-btn" className="btn btn-danger text-center btn-block lg-btn my-2 my-lg-0">Change View</button>*/}
             </div>
             <div className="d-flex align-items-center col-lg-8 col-12 justify-content-center">
                 <div className="d-flex align-items-center">

@@ -1,0 +1,18 @@
+.card-quote {
+    width: 14rem; 
+    min-height: 14rem;
+}
+
+.thumbnail{
+    
+    max-width: 6rem;
+    max-height: 6rem;
+    margin: 1rem;
+}
+.img-full-size{
+    max-width: 14rem;
+    height: 14rem;
+}
+.hide-quote{
+    display: none;
+}
