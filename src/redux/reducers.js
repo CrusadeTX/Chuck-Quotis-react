@@ -9,4 +9,12 @@ function quotes(state=[], action){
 
     }
 }
+function filter(state='',action){
+    switch(action.type){
+        case actions.SET_FILTER:{
+            return action.payload;
+        }
+    }
+}
+export default combineReducers({quotes,filter,fname,lname})
     
