@@ -19,7 +19,7 @@ const networkClient = {
             baseURL: constants.baseUrl,
         }, options);
 
-        data.params = Object.assign({}, qs.stringify(options.params));
+        data.params = Object.assign({}, options.params);
 
         return new Promise((resolve, reject) => {
             axios(data)

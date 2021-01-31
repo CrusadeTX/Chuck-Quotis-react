@@ -7,17 +7,18 @@ import {useSelector, useDispatch} from 'react-redux'
 import React, {useEffect} from 'react';
 import { getQuotes } from '../redux/actions';
 import axios from 'axios';
-import qs from 'qs'
+import qs from 'qs';
 
 function Home(props){
     
-    //const quotes = useSelector(state=>state.quotes);
+    const quotes = useSelector(state=>state.quotes);
     
     const dispatch = useDispatch();
     const loadQuotes = () =>{
-        const quotes = dispatch(getQuotes({
-            limitTo: ['nerdy'],
-        }))
+        dispatch(getQuotes({
+            limitTo: 'explicit',
+        },
+        ))
         console.log('hi')
         console.log(quotes)
         if(!quotes.length){
