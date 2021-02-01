@@ -1,6 +1,5 @@
 import axios from 'axios';
 import constants from '../constants';
-import qs from 'qs';
 const networkClient = {
     get(url,params, success, failure) {
         return this.request({
@@ -20,6 +19,11 @@ const networkClient = {
         }, options);
 
         data.params = Object.assign({}, options.params);
+        console.log(data.params)
+        if(data.params.limitTo===''){
+            data.params=null
+            console.log(data.params)
+        }
 
         return new Promise((resolve, reject) => {
             axios(data)

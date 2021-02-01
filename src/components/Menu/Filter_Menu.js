@@ -1,10 +1,31 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Button } from 'reactstrap';
+import {useSelector, useDispatch} from 'react-redux';
+import { getQuotes, setFilter } from '../../redux/actions';
 const FilterMenu = ()=>{
+    const filter = useSelector(state=>state.filter)
+    const dispatch = useDispatch();
 
     const changeView = () =>{
+        
 
     }
+    const inputOnChange = (event) =>{
+        if(filter !== event.target.value){
+            console.log("i am called")
+        dispatch(setFilter(event.target.value))
+        loadQuotes()
+        }
+
+    }
+    const loadQuotes=()=>{
+        dispatch(getQuotes({
+            limitTo: filter,
+        }));
+    }
+    useEffect(() => {
+        loadQuotes();
+    }, []);
 
     return  <>
         <div className="row mt-3 shadow p-2">
@@ -24,7 +45,8 @@ const FilterMenu = ()=>{
                             type="radio"
                             name="limit"
                             value="nerdy"
-                            checked={true}
+                            checked={'nerdy'===filter}
+                            onChange={inputOnChange}
                             className="custom-control-input"
                         />
                         Nerdy
@@ -36,7 +58,8 @@ const FilterMenu = ()=>{
                             type="radio"
                             name="limit"
                             value="explicit"
-                            checked={false}
+                            checked={'explicit'===filter}
+                            onChange={inputOnChange}
                             className="custom-control-input"
                         />
                         Explicit
@@ -47,8 +70,9 @@ const FilterMenu = ()=>{
                         <input
                             type="radio"
                             name="limit"
-                            value=""
-                            checked={false}
+                            value=''
+                            checked={''===filter}
+                            onChange={inputOnChange}
                             className="custom-control-input"
                         />
                         All

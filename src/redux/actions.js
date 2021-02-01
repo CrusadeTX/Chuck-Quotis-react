@@ -7,12 +7,14 @@ export function setQuotes(quotes){
 export function setFilter(filter){
     return {type: actions.SET_FILTER, payload: filter};
 }
+export function setLayout(layout){
+    return {type: actions.SET_LAYOUT, payload: layout};
+}
 export const getQuotes = params => async dispatch => {
     try {
         const response = await networkClient.get('jokes',params,)
         dispatch(setQuotes(response.value));
         console.log(response.value)
-        debugger
     } catch (error) {
         console.log(error)
     }

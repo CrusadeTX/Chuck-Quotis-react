@@ -6,21 +6,18 @@ import {Alert } from 'reactstrap';
 import {useSelector, useDispatch} from 'react-redux'
 import React, {useEffect} from 'react';
 import { getQuotes } from '../redux/actions';
-import axios from 'axios';
-import qs from 'qs';
 
 function Home(props){
     
     const quotes = useSelector(state=>state.quotes);
+    //const limit = useSelector(state=>state.filter);
     
     const dispatch = useDispatch();
     const loadQuotes = () =>{
-        dispatch(getQuotes({
-            limitTo: 'explicit',
-        },
-        ))
-        console.log('hi')
-        console.log(quotes)
+        
+        
+        //console.log('hi')
+       // console.log(quotes)
         if(!quotes.length){
             return <div className="col">
                 <Alert color="secondary" className="text-center p-5 mt-3">
@@ -45,9 +42,8 @@ function Home(props){
      <div className="container-lg container-fluid ">
     <Header/>
     <FilterMenu/>
-    <div>
+    <div id="quote-container" class="col-lg-9 d-flex flex-wrap col-12 justify-content-center order-2 order-lg-1">
   {loadQuotes()}
-    <CardRow/>
     </div>
     </div>
     </>

@@ -18,5 +18,13 @@ function filter(state='',action){
         default: return state;
     }
 }
-export default combineReducers({quotes,filter})
+function isChecked(state=false,action){
+    switch(action.type){
+        case actions.SET_CHECKED:{
+            return action.payload;
+        }
+        default: return state;
+    }
+}
+export default combineReducers({quotes,filter, isChecked})
     
