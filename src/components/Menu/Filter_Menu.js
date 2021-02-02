@@ -1,12 +1,24 @@
 import React, {useEffect} from 'react';
 import { Button } from 'reactstrap';
 import {useSelector, useDispatch} from 'react-redux';
-import { getQuotes, setFilter } from '../../redux/actions';
+import { getQuotes, setFilter, setLayout } from '../../redux/actions';
 const FilterMenu = ()=>{
     const filter = useSelector(state=>state.filter)
+    const layout = useSelector(state=>state.layout)
     const dispatch = useDispatch();
 
     const changeView = () =>{
+        console.log('clicked')
+        if (layout === 'Card'){
+            dispatch(setLayout('Row'))
+            //console.log('Row')
+            
+        }
+        else{
+            dispatch(setLayout('Card'))
+            //console.log('Card')
+        }
+        console.log(layout)
         
 
     }
@@ -22,13 +34,14 @@ const FilterMenu = ()=>{
         }));
     }
     useEffect((filter) => {
+        dispatch(setLayout('Card'))
         loadQuotes(filter);
     }, []);
 
     return  <>
         <div className="row mt-3 shadow p-2">
             <div className="d-flex align-items-center col-lg-2 col-12">
-            <Button color="danger" className="btn text-center btn-block lg-btn my-2 my-lg-0" onClick={changeView()}>Change View</Button>
+            <Button color="danger" className="btn text-center btn-block lg-btn my-2 my-lg-0" onClick={changeView}>Change View</Button>
             {/*<button id="change-view-btn" className="btn btn-danger text-center btn-block lg-btn my-2 my-lg-0">Change View</button>*/}
             </div>
             <div className="d-flex align-items-center col-lg-8 col-12 justify-content-center">

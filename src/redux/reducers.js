@@ -18,13 +18,13 @@ function filter(state='',action){
         default: return state;
     }
 }
-function isChecked(state=false,action){
+function layout(state='Card',action){
     switch(action.type){
-        case actions.SET_CHECKED:{
+        case actions.SET_LAYOUT:{
             return action.payload;
         }
         default: return state;
     }
 }
-export default combineReducers({quotes,filter, isChecked})
+export default combineReducers({quotes,filter, layout})
     
