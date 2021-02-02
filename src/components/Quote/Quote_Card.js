@@ -4,14 +4,20 @@ import {
     CardBody,
   } from 'reactstrap';
   import '../../css/style.css'
-  import image from '../../images/1.jpg'
+  import images from '../../images//images.js'
 
 
 
 const QuoteCard = props =>{
+    const GenerateRandomImage = ()=>{
+
+        let random = Math.floor(Math.random() * Math.floor(7));
+        return images[random];
+
+    }
     return <>
         <Card className='shadow m-2 card-quote'>
-        <CardImg className="card-img-top img-full-size" src={props.imagePath}/>
+        <CardImg className="card-img-top img-full-size" src={GenerateRandomImage()}/>
         <CardBody>
          <span className="card-text">{props.text}</span>
         </CardBody>
