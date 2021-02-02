@@ -53,7 +53,7 @@ function Home(props){
      <div className="container-lg container-fluid ">
     <Header/>
     <FilterMenu/>
-    <div id="quote-container" class="col-lg-9 d-flex flex-wrap col-12 justify-content-center order-2 order-lg-1">
+    <div id="quote-container" class="d-flex flex-wrap col-12 justify-content-center order-2 order-lg-1">
   {loadQuotes()}
     </div>
     </div>
