@@ -11,20 +11,18 @@ const FilterMenu = ()=>{
 
     }
     const inputOnChange = (event) =>{
-        if(filter !== event.target.value){
-            console.log("i am called")
         dispatch(setFilter(event.target.value))
-        loadQuotes()
-        }
+        loadQuotes(event.target.value)
+        
 
     }
-    const loadQuotes=()=>{
+    const loadQuotes=(limit)=>{
         dispatch(getQuotes({
-            limitTo: filter,
+            limitTo: limit,
         }));
     }
-    useEffect(() => {
-        loadQuotes();
+    useEffect((filter) => {
+        loadQuotes(filter);
     }, []);
 
     return  <>
